@@ -10,11 +10,23 @@ export default function Home() {
   return (
     <main className="min-h-screen p-8 bg-gray-50 dark:bg-gray-950">
       <FadeIn>
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-            Customer Feedback Dashboard
-          </h1>
-          <ThemeToggle />
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+                  Customer Feedback Dashboard
+                </h1>
+                <span className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full">
+                  AI-Powered
+                </span>
+              </div>
+              <p className="text-muted-foreground">
+                Real-time sentiment analysis and insights from customer reviews
+              </p>
+            </div>
+            <ThemeToggle />
+          </div>
         </div>
       </FadeIn>
       
