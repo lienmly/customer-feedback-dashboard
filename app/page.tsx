@@ -8,8 +8,7 @@ import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } fro
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
-      <FadeIn>
+      <main className="min-h-screen pl-72 pr-8 py-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">      <FadeIn>
         <div className="mb-10">
           <div className="flex items-center justify-between mb-4">
             <div>
