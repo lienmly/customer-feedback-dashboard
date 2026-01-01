@@ -4,6 +4,7 @@ import { SentimentChart } from "@/components/sentiment-chart";
 import { ReviewsList } from "@/components/reviews-list";
 import { sentimentData, reviews } from "@/lib/mock-data";
 import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } from "lucide-react";
+import { FadeIn } from "@/components/fade-in";
 
 export default function Home() {
   return (
