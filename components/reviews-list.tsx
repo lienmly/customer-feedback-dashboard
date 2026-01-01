@@ -13,16 +13,16 @@ interface ReviewsListProps {
 }
 
 export function ReviewsList({ reviews }: ReviewsListProps) {
-  const getSentimentColor = (sentiment: string) => {
+  const getSentimentStyle = (sentiment: string) => {
     switch (sentiment) {
       case 'positive':
-        return 'bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/20';
+        return 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800';
       case 'negative':
-        return 'bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20';
+        return 'bg-rose-50 dark:bg-rose-900/20 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-800';
       case 'neutral':
-        return 'bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-500/20';
+        return 'bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800';
       default:
-        return 'bg-gray-500/10 text-gray-700 dark:text-gray-400 border-gray-500/20';
+        return 'bg-slate-50 dark:bg-slate-800/20 text-slate-700 dark:text-slate-400 border-slate-200 dark:border-slate-700';
     }
   };
 
@@ -31,30 +31,32 @@ export function ReviewsList({ reviews }: ReviewsListProps) {
   };
 
   return (
-    <Card>
+    <Card className="border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle>Recent Reviews</CardTitle>
-        <CardDescription>Latest customer feedback with sentiment analysis</CardDescription>
+        <CardTitle className="text-lg text-slate-900 dark:text-white">Recent Reviews</CardTitle>
+        <CardDescription className="text-slate-600 dark:text-slate-400">
+          Latest customer feedback with sentiment analysis
+        </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {reviews.map((review) => (
             <div 
               key={review.id} 
-              className="p-4 rounded-lg border bg-card"
+              className="p-4 rounded-xl bg-slate-50/50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
             >
-              <div className="flex items-start justify-between mb-2">
+              <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-yellow-500">{getStars(review.rating)}</span>
+                  <span className="text-amber-400 text-sm">{getStars(review.rating)}</span>
                   <span 
-                    className={`px-2 py-1 rounded-full text-xs font-medium border ${getSentimentColor(review.sentiment)}`}
+                    className={`px-2.5 py-1 rounded-full text-xs font-medium border ${getSentimentStyle(review.sentiment)}`}
                   >
                     {review.sentiment}
                   </span>
                 </div>
-                <span className="text-xs text-muted-foreground">{review.date}</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">{review.date}</span>
               </div>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
                 {review.text}
               </p>
             </div>
