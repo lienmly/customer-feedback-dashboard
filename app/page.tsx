@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { SentimentChart } from "@/components/sentiment-chart";
 import { ReviewsList } from "@/components/reviews-list";
 import { sentimentData, reviews } from "@/lib/mock-data";
+import { MessageSquare, TrendingUp, Smile } from "lucide-react";
 
 export default function Home() {
   return (
@@ -17,34 +18,39 @@ export default function Home() {
       {/* Metric Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <Card>
-          <CardHeader>
-            <CardTitle>Total Reviews</CardTitle>
-            <CardDescription>All time feedback</CardDescription>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Reviews</CardTitle>
+            <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <p className="text-4xl font-bold">487</p>
+            <div className="text-2xl font-bold">487</div>
+            <p className="text-xs text-muted-foreground mt-1">All time feedback</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader>
-            <CardTitle>Average Sentiment</CardTitle>
-            <CardDescription>Overall mood</CardDescription>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Average Sentiment</CardTitle>
+            <Smile className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <p className="text-4xl font-bold text-green-600 dark:text-green-500">78%</p>
-            <p className="text-sm text-muted-foreground mt-2">Positive</p>
+            <div className="text-2xl font-bold text-green-600 dark:text-green-500">78%</div>
+            <p className="text-xs text-muted-foreground mt-1">
+              <span className="text-green-600 dark:text-green-500 font-medium">Positive</span> overall mood
+            </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader>
-            <CardTitle>Recent Trend</CardTitle>
-            <CardDescription>Last 30 days</CardDescription>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Recent Trend</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <p className="text-4xl font-bold text-green-600 dark:text-green-500">↑ 12%</p>
-            <p className="text-sm text-muted-foreground mt-2">Improving</p>
+            <div className="text-2xl font-bold text-green-600 dark:text-green-500">+12%</div>
+            <p className="text-xs text-muted-foreground mt-1">
+              <span className="text-green-600 dark:text-green-500 font-medium">↑ Improving</span> last 30 days
+            </p>
           </CardContent>
         </Card>
       </div>
