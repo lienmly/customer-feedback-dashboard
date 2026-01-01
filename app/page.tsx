@@ -55,6 +55,50 @@ export default function Home() {
         </Card>
       </div>
 
+      {/* Sentiment Distribution Bar */}
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle className="text-lg">Sentiment Distribution</CardTitle>
+          <CardDescription>Breakdown of customer feedback</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                <span className="font-medium">Positive</span>
+              </div>
+              <span className="text-muted-foreground">60% (292 reviews)</span>
+            </div>
+            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+              <div className="h-full bg-green-500" style={{ width: '60%' }}></div>
+            </div>
+
+            <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+                <span className="font-medium">Neutral</span>
+              </div>
+              <span className="text-muted-foreground">25% (122 reviews)</span>
+            </div>
+            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+              <div className="h-full bg-yellow-500" style={{ width: '25%' }}></div>
+            </div>
+
+            <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                <span className="font-medium">Negative</span>
+              </div>
+              <span className="text-muted-foreground">15% (73 reviews)</span>
+            </div>
+            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+              <div className="h-full bg-red-500" style={{ width: '15%' }}></div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Chart */}
       <div className="mb-8">
         <SentimentChart data={sentimentData} />
