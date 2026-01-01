@@ -3,7 +3,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { SentimentChart } from "@/components/sentiment-chart";
 import { ReviewsList } from "@/components/reviews-list";
 import { sentimentData, reviews } from "@/lib/mock-data";
-import { MessageSquare, TrendingUp, Smile } from "lucide-react";
+import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } from "lucide-react";
 
 export default function Home() {
   return (
@@ -102,6 +102,79 @@ export default function Home() {
       {/* Chart */}
       <div className="mb-8">
         <SentimentChart data={sentimentData} />
+      </div>
+
+      {/* AI-Powered Insights */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-purple-500" />
+              <CardTitle className="text-lg">Top Praise</CardTitle>
+            </div>
+            <CardDescription>What customers love most</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <ThumbsUp className="h-4 w-4 text-green-500 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium">Friendly Staff</p>
+                  <p className="text-xs text-muted-foreground">Mentioned in 156 reviews</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <ThumbsUp className="h-4 w-4 text-green-500 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium">Great Coffee Quality</p>
+                  <p className="text-xs text-muted-foreground">Mentioned in 134 reviews</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <ThumbsUp className="h-4 w-4 text-green-500 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium">Cozy Atmosphere</p>
+                  <p className="text-xs text-muted-foreground">Mentioned in 98 reviews</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <AlertCircle className="h-5 w-5 text-orange-500" />
+              <CardTitle className="text-lg">Areas for Improvement</CardTitle>
+            </div>
+            <CardDescription>Common complaints to address</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <div className="h-2 w-2 rounded-full bg-red-500 mt-1.5"></div>
+                <div>
+                  <p className="text-sm font-medium">Wait Times</p>
+                  <p className="text-xs text-muted-foreground">Mentioned in 45 negative reviews</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="h-2 w-2 rounded-full bg-red-500 mt-1.5"></div>
+                <div>
+                  <p className="text-sm font-medium">Pricing</p>
+                  <p className="text-xs text-muted-foreground">Mentioned in 32 negative reviews</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="h-2 w-2 rounded-full bg-red-500 mt-1.5"></div>
+                <div>
+                  <p className="text-sm font-medium">Limited Seating</p>
+                  <p className="text-xs text-muted-foreground">Mentioned in 28 negative reviews</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Reviews List */}
