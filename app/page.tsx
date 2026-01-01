@@ -8,20 +8,20 @@ import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } fro
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-8 bg-gray-50 dark:bg-gray-950">
+    <main className="min-h-screen p-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <FadeIn>
-        <div className="mb-8">
+        <div className="mb-10">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+              <div className="flex items-center gap-3 mb-3">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent">
                   Customer Feedback Dashboard
                 </h1>
-                <span className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full">
+                <span className="px-3 py-1.5 text-xs font-semibold bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 text-white rounded-full shadow-lg shadow-purple-500/30">
                   AI-Powered
                 </span>
               </div>
-              <p className="text-muted-foreground">
+              <p className="text-slate-600 dark:text-slate-400 text-sm">
                 Real-time sentiment analysis and insights from customer reviews
               </p>
             </div>
@@ -33,39 +33,45 @@ export default function Home() {
       {/* Metric Cards */}
       <FadeIn delay={100}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="card-hover">
+          <Card className="border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Reviews</CardTitle>
-              <MessageSquare className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-slate-700 dark:text-slate-300">Total Reviews</CardTitle>
+              <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                <MessageSquare className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">487</div>
-              <p className="text-xs text-muted-foreground mt-1">All time feedback</p>
+              <div className="text-3xl font-bold text-slate-900 dark:text-white">487</div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">All time feedback</p>
             </CardContent>
           </Card>
 
-          <Card className="card-hover">
+          <Card className="border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Average Sentiment</CardTitle>
-              <Smile className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-slate-700 dark:text-slate-300">Average Sentiment</CardTitle>
+              <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
+                <Smile className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600 dark:text-green-500">78%</div>
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 dark:text-green-500 font-medium">Positive</span> overall mood
+              <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">78%</div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <span className="text-emerald-600 dark:text-emerald-400 font-medium">Positive</span> overall mood
               </p>
             </CardContent>
           </Card>
 
-          <Card className="card-hover">
+          <Card className="border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Recent Trend</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-slate-700 dark:text-slate-300">Recent Trend</CardTitle>
+              <div className="p-2 bg-violet-100 dark:bg-violet-900/30 rounded-lg">
+                <TrendingUp className="h-4 w-4 text-violet-600 dark:text-violet-400" />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600 dark:text-green-500">+12%</div>
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 dark:text-green-500 font-medium">↑ Improving</span> last 30 days
+              <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">+12%</div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <span className="text-emerald-600 dark:text-emerald-400 font-medium">↑ Improving</span> last 30 days
               </p>
             </CardContent>
           </Card>
@@ -74,44 +80,50 @@ export default function Home() {
 
       {/* Sentiment Distribution Bar */}
       <FadeIn delay={200}>
-        <Card className="mb-8">
+        <Card className="mb-8 border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle className="text-lg">Sentiment Distribution</CardTitle>
-            <CardDescription>Breakdown of customer feedback</CardDescription>
+            <CardTitle className="text-lg text-slate-900 dark:text-white">Sentiment Distribution</CardTitle>
+            <CardDescription className="text-slate-600 dark:text-slate-400">Breakdown of customer feedback</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-green-500"></div>
-                  <span className="font-medium">Positive</span>
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="h-3 w-3 rounded-full bg-emerald-500"></div>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">Positive</span>
+                  </div>
+                  <span className="text-slate-500 dark:text-slate-400">60% (292 reviews)</span>
                 </div>
-                <span className="text-muted-foreground">60% (292 reviews)</span>
-              </div>
-              <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-green-500" style={{ width: '60%' }}></div>
+                <div className="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full" style={{ width: '60%' }}></div>
+                </div>
               </div>
 
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-                  <span className="font-medium">Neutral</span>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="h-3 w-3 rounded-full bg-amber-500"></div>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">Neutral</span>
+                  </div>
+                  <span className="text-slate-500 dark:text-slate-400">25% (122 reviews)</span>
                 </div>
-                <span className="text-muted-foreground">25% (122 reviews)</span>
-              </div>
-              <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-yellow-500" style={{ width: '25%' }}></div>
+                <div className="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full" style={{ width: '25%' }}></div>
+                </div>
               </div>
 
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-red-500"></div>
-                  <span className="font-medium">Negative</span>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="h-3 w-3 rounded-full bg-rose-500"></div>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">Negative</span>
+                  </div>
+                  <span className="text-slate-500 dark:text-slate-400">15% (73 reviews)</span>
                 </div>
-                <span className="text-muted-foreground">15% (73 reviews)</span>
-              </div>
-              <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-red-500" style={{ width: '15%' }}></div>
+                <div className="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-rose-400 to-rose-500 rounded-full" style={{ width: '15%' }}></div>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -128,70 +140,74 @@ export default function Home() {
       {/* AI-Powered Insights */}
       <FadeIn delay={400}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <Card className="card-hover">
+          <Card className="border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-purple-500" />
-                <CardTitle className="text-lg">Top Praise</CardTitle>
+                <div className="p-2 bg-violet-100 dark:bg-violet-900/30 rounded-lg">
+                  <Sparkles className="h-5 w-5 text-violet-600 dark:text-violet-400" />
+                </div>
+                <CardTitle className="text-lg text-slate-900 dark:text-white">Top Praise</CardTitle>
               </div>
-              <CardDescription>What customers love most</CardDescription>
+              <CardDescription className="text-slate-600 dark:text-slate-400">What customers love most</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <ThumbsUp className="h-4 w-4 text-green-500 mt-0.5" />
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800">
+                  <ThumbsUp className="h-4 w-4 text-emerald-600 dark:text-emerald-400 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium">Friendly Staff</p>
-                    <p className="text-xs text-muted-foreground">Mentioned in 156 reviews</p>
+                    <p className="text-sm font-medium text-slate-900 dark:text-white">Friendly Staff</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Mentioned in 156 reviews</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <ThumbsUp className="h-4 w-4 text-green-500 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800">
+                  <ThumbsUp className="h-4 w-4 text-emerald-600 dark:text-emerald-400 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium">Great Coffee Quality</p>
-                    <p className="text-xs text-muted-foreground">Mentioned in 134 reviews</p>
+                    <p className="text-sm font-medium text-slate-900 dark:text-white">Great Coffee Quality</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Mentioned in 134 reviews</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <ThumbsUp className="h-4 w-4 text-green-500 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800">
+                  <ThumbsUp className="h-4 w-4 text-emerald-600 dark:text-emerald-400 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium">Cozy Atmosphere</p>
-                    <p className="text-xs text-muted-foreground">Mentioned in 98 reviews</p>
+                    <p className="text-sm font-medium text-slate-900 dark:text-white">Cozy Atmosphere</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Mentioned in 98 reviews</p>
                   </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="card-hover">
+          <Card className="border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
             <CardHeader>
               <div className="flex items-center gap-2">
-                <AlertCircle className="h-5 w-5 text-orange-500" />
-                <CardTitle className="text-lg">Areas for Improvement</CardTitle>
+                <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                  <AlertCircle className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                </div>
+                <CardTitle className="text-lg text-slate-900 dark:text-white">Areas for Improvement</CardTitle>
               </div>
-              <CardDescription>Common complaints to address</CardDescription>
+              <CardDescription className="text-slate-600 dark:text-slate-400">Common complaints to address</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="h-2 w-2 rounded-full bg-red-500 mt-1.5"></div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800">
+                  <div className="h-2 w-2 rounded-full bg-rose-500 mt-2"></div>
                   <div>
-                    <p className="text-sm font-medium">Wait Times</p>
-                    <p className="text-xs text-muted-foreground">Mentioned in 45 negative reviews</p>
+                    <p className="text-sm font-medium text-slate-900 dark:text-white">Wait Times</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Mentioned in 45 negative reviews</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="h-2 w-2 rounded-full bg-red-500 mt-1.5"></div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800">
+                  <div className="h-2 w-2 rounded-full bg-rose-500 mt-2"></div>
                   <div>
-                    <p className="text-sm font-medium">Pricing</p>
-                    <p className="text-xs text-muted-foreground">Mentioned in 32 negative reviews</p>
+                    <p className="text-sm font-medium text-slate-900 dark:text-white">Pricing</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Mentioned in 32 negative reviews</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="h-2 w-2 rounded-full bg-red-500 mt-1.5"></div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800">
+                  <div className="h-2 w-2 rounded-full bg-rose-500 mt-2"></div>
                   <div>
-                    <p className="text-sm font-medium">Limited Seating</p>
-                    <p className="text-xs text-muted-foreground">Mentioned in 28 negative reviews</p>
+                    <p className="text-sm font-medium text-slate-900 dark:text-white">Limited Seating</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Mentioned in 28 negative reviews</p>
                   </div>
                 </div>
               </div>
