@@ -21,7 +21,7 @@ export default function Home() {
       {/* Metric Cards */}
       <FadeIn delay={100}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card>
+          <Card className="card-hover">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Reviews</CardTitle>
               <MessageSquare className="h-4 w-4 text-muted-foreground" />
@@ -32,7 +32,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-hover">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Average Sentiment</CardTitle>
               <Smile className="h-4 w-4 text-muted-foreground" />
@@ -45,7 +45,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-hover">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Recent Trend</CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -116,7 +116,7 @@ export default function Home() {
       {/* AI-Powered Insights */}
       <FadeIn delay={400}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <Card>
+          <Card className="card-hover">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-purple-500" />
@@ -151,7 +151,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-hover">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <AlertCircle className="h-5 w-5 text-orange-500" />
