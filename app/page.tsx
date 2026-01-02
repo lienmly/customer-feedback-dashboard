@@ -2,7 +2,6 @@
 
 import { useSidebar } from "@/components/sidebar-provider";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { SentimentChart } from "@/components/sentiment-chart";
 import { ReviewsList } from "@/components/reviews-list";
 import { FadeIn } from "@/components/fade-in";
@@ -15,7 +14,7 @@ export default function Home() {
   return (
       <main className={`min-h-screen pr-8 py-8 transition-all duration-300 ${collapsed ? 'pl-28' : 'pl-72'} bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950`}>      <FadeIn>
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-3">
+          <div className="mb-3">
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent">
@@ -29,7 +28,6 @@ export default function Home() {
                 Real-time sentiment analysis and insights from customer reviews
               </p>
             </div>
-            <ThemeToggle />
           </div>
         </div>
       </FadeIn>

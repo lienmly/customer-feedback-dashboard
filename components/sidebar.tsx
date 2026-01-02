@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, BarChart3, Settings, FileText, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { useSidebar } from "./sidebar-provider";
+import { ThemeToggle } from "./theme-toggle";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
@@ -69,9 +70,15 @@ export function Sidebar() {
         })}
       </nav>
 
-      {/* Bottom Info */}
-      {!collapsed && (
-        <div className="absolute bottom-6 left-6 right-6">
+      {/* Theme Toggle & Bottom Info */}
+      <div className="absolute bottom-6 left-6 right-6 space-y-4">
+        {/* Theme Toggle */}
+        <div className={`flex ${collapsed ? 'justify-center' : 'justify-start'}`}>
+          <ThemeToggle />
+        </div>
+
+        {/* Free Plan */}
+        {!collapsed && (
           <div className="p-4 rounded-xl bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-2 mb-2">
               <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
@@ -84,8 +91,8 @@ export function Sidebar() {
               Upgrade Pro
             </button>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
