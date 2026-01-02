@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useSidebar } from "@/components/sidebar-provider";
+import { SentimentPieChart } from "@/components/sentiment-pie-chart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SentimentChart } from "@/components/sentiment-chart";
 import { ReviewsList } from "@/components/reviews-list";
@@ -163,63 +164,16 @@ export default function Home() {
         </div>
       </FadeIn>
 
-      {/* Chart and Distribution - Side by Side */}
+      {/* Chart and Pie Chart - Side by Side */}
       <FadeIn delay={200}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-          {/* Chart takes 2 columns */}
+          {/* Line Chart takes 2 columns */}
           <div className="lg:col-span-2">
             <SentimentChart data={sentimentData} />
           </div>
 
-          {/* Sentiment Distribution takes 1 column */}
-          <Card className="border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-base text-slate-900 dark:text-white">Sentiment Distribution</CardTitle>
-              <CardDescription className="text-xs text-slate-600 dark:text-slate-400">Breakdown of feedback</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
-                      <span className="font-medium text-slate-700 dark:text-slate-300">Positive</span>
-                    </div>
-                    <span className="text-slate-500 dark:text-slate-400">60%</span>
-                  </div>
-                  <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full" style={{ width: '60%' }}></div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
-                      <span className="font-medium text-slate-700 dark:text-slate-300">Neutral</span>
-                    </div>
-                    <span className="text-slate-500 dark:text-slate-400">25%</span>
-                  </div>
-                  <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full" style={{ width: '25%' }}></div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-rose-500"></div>
-                      <span className="font-medium text-slate-700 dark:text-slate-300">Negative</span>
-                    </div>
-                    <span className="text-slate-500 dark:text-slate-400">15%</span>
-                  </div>
-                  <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-rose-400 to-rose-500 rounded-full" style={{ width: '15%' }}></div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Pie Chart takes 1 column */}
+          <SentimentPieChart />
         </div>
       </FadeIn>
 
