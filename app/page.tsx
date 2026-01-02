@@ -1,19 +1,19 @@
 "use client";
 
 import * as React from "react";
-import { Calendar } from "lucide-react";
 import { useSidebar } from "@/components/sidebar-provider";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SentimentChart } from "@/components/sentiment-chart";
 import { ReviewsList } from "@/components/reviews-list";
 import { FadeIn } from "@/components/fade-in";
 import { sentimentData, reviews } from "@/lib/mock-data";
-import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } from "lucide-react";
+import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp, Calendar, Search } from "lucide-react";
 
 export default function Home() {
   const { collapsed } = useSidebar();
   const [timeRange, setTimeRange] = React.useState("30d");
   const [sentimentFilter, setSentimentFilter] = React.useState("all");
+  const [searchQuery, setSearchQuery] = React.useState("");
 
   return (
       <main className={`min-h-screen pr-8 py-8 transition-all duration-300 ${collapsed ? 'pl-28' : 'pl-72'} bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950`}>      <FadeIn>
@@ -32,6 +32,22 @@ export default function Home() {
                 Real-time sentiment analysis and insights from customer reviews
               </p>
             </div>
+          </div>
+        </div>
+      </FadeIn>
+
+      {/* Search */}
+      <FadeIn delay={25}>
+        <div className="mb-4">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search reviews..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-11 pr-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+            />
           </div>
         </div>
       </FadeIn>
