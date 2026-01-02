@@ -308,6 +308,10 @@ export default function Home() {
           if (sentimentFilter !== "all" && review.sentiment !== sentimentFilter) {
             return false;
           }
+          // Filter by search query
+          if (searchQuery && !review.text.toLowerCase().includes(searchQuery.toLowerCase())) {
+            return false;
+          }
           return true;
         })} 
       />
