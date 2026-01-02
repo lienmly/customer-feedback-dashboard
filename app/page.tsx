@@ -13,6 +13,7 @@ import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } fro
 export default function Home() {
   const { collapsed } = useSidebar();
   const [timeRange, setTimeRange] = React.useState("30d");
+  const [sentimentFilter, setSentimentFilter] = React.useState("all");
 
   return (
       <main className={`min-h-screen pr-8 py-8 transition-all duration-300 ${collapsed ? 'pl-28' : 'pl-72'} bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950`}>      <FadeIn>
@@ -37,30 +38,63 @@ export default function Home() {
 
       {/* Filters */}
       <FadeIn delay={50}>
-        <div className="mb-6 flex items-center gap-3">
-          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-            <Calendar className="h-4 w-4" />
-            <span className="font-medium">Time Range:</span>
-          </div>
-          <div className="flex gap-2">
-            {[
-              { label: "7 Days", value: "7d" },
-              { label: "30 Days", value: "30d" },
-              { label: "90 Days", value: "90d" },
-              { label: "All Time", value: "all" },
-            ].map((option) => (
-              <button
-                key={option.value}
-                onClick={() => setTimeRange(option.value)}
-                className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${
-                  timeRange === option.value
-                    ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg shadow-purple-500/30"
-                    : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-700"
-                }`}
-              >
-                {option.label}
-              </button>
-            ))}
+        <div className="mb-8 p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
+          <div className="flex items-center justify-between gap-8">
+            {/* Time Range Filter */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                <Calendar className="h-4 w-4" />
+                <span className="font-medium">Time Range:</span>
+              </div>
+              <div className="flex gap-2">
+                {[
+                  { label: "7 Days", value: "7d" },
+                  { label: "30 Days", value: "30d" },
+                  { label: "90 Days", value: "90d" },
+                  { label: "All Time", value: "all" },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => setTimeRange(option.value)}
+                    className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${
+                      timeRange === option.value
+                        ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg shadow-purple-500/30"
+                        : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-700"
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Sentiment Filter */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                <Smile className="h-4 w-4" />
+                <span className="font-medium">Sentiment:</span>
+              </div>
+              <div className="flex gap-2">
+                {[
+                  { label: "All", value: "all" },
+                  { label: "Positive", value: "positive" },
+                  { label: "Neutral", value: "neutral" },
+                  { label: "Negative", value: "negative" },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => setSentimentFilter(option.value)}
+                    className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${
+                      sentimentFilter === option.value
+                        ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg shadow-purple-500/30"
+                        : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-700"
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </FadeIn>
