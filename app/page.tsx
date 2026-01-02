@@ -1,3 +1,6 @@
+"use client";
+
+import { useSidebar } from "@/components/sidebar-provider";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { SentimentChart } from "@/components/sentiment-chart";
@@ -7,9 +10,10 @@ import { sentimentData, reviews } from "@/lib/mock-data";
 import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } from "lucide-react";
 
 export default function Home() {
+  const { collapsed } = useSidebar();
+
   return (
-    <main className="min-h-screen pl-72 pr-8 py-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
-      <FadeIn>
+      <main className={`min-h-screen pr-8 py-8 transition-all duration-300 ${collapsed ? 'pl-28' : 'pl-72'} bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950`}>      <FadeIn>
         <div className="mb-8">
           <div className="flex items-center justify-between mb-3">
             <div>
