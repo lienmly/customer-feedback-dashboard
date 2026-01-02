@@ -13,7 +13,7 @@ A beautiful, AI-powered dashboard for analyzing customer feedback and sentiment.
 
 ## Demo
 
-[Live Demo](#) (Add your Vercel URL here)
+[Live Demo](https://customer-feedback-dashboard-ten.vercel.app/)
 
 ## Getting Started
 
