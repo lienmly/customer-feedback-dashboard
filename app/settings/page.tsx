@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useSidebar } from "@/components/sidebar-provider";
 import { FadeIn } from "@/components/fade-in";
-import { User, Bell, Shield, Palette, Mail, Globe } from "lucide-react";
+import { User, Bell, Shield, Palette } from "lucide-react";
 
 export default function SettingsPage() {
   const { collapsed } = useSidebar();
