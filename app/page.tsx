@@ -1,5 +1,7 @@
 "use client";
 
+import * as React from "react";
+import { Calendar } from "lucide-react";
 import { useSidebar } from "@/components/sidebar-provider";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SentimentChart } from "@/components/sentiment-chart";
@@ -10,6 +12,7 @@ import { MessageSquare, TrendingUp, Smile, Sparkles, AlertCircle, ThumbsUp } fro
 
 export default function Home() {
   const { collapsed } = useSidebar();
+  const [timeRange, setTimeRange] = React.useState("30d");
 
   return (
       <main className={`min-h-screen pr-8 py-8 transition-all duration-300 ${collapsed ? 'pl-28' : 'pl-72'} bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950`}>      <FadeIn>
@@ -28,6 +31,36 @@ export default function Home() {
                 Real-time sentiment analysis and insights from customer reviews
               </p>
             </div>
+          </div>
+        </div>
+      </FadeIn>
+
+      {/* Filters */}
+      <FadeIn delay={50}>
+        <div className="mb-6 flex items-center gap-3">
+          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+            <Calendar className="h-4 w-4" />
+            <span className="font-medium">Time Range:</span>
+          </div>
+          <div className="flex gap-2">
+            {[
+              { label: "7 Days", value: "7d" },
+              { label: "30 Days", value: "30d" },
+              { label: "90 Days", value: "90d" },
+              { label: "All Time", value: "all" },
+            ].map((option) => (
+              <button
+                key={option.value}
+                onClick={() => setTimeRange(option.value)}
+                className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${
+                  timeRange === option.value
+                    ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg shadow-purple-500/30"
+                    : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-700"
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
           </div>
         </div>
       </FadeIn>
