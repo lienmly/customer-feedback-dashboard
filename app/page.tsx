@@ -286,10 +286,15 @@ export default function Home() {
         </div>
       </FadeIn>
 
-      {/* Reviews List */}
-      <FadeIn delay={400}>
-        <ReviewsList reviews={reviews} />
-      </FadeIn>
+      <ReviewsList 
+        reviews={reviews.filter(review => {
+          // Filter by sentiment
+          if (sentimentFilter !== "all" && review.sentiment !== sentimentFilter) {
+            return false;
+          }
+          return true;
+        })} 
+      />
     </main>
   );
 }
